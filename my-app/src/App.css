@@ -1,3 +1,6 @@
+:root {
+  --text-color: black;
+}
 .App {
   text-align: center;
 }
@@ -14,7 +17,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #f8e1ff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -35,4 +38,8 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+body {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
