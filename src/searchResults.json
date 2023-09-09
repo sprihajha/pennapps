@@ -1,0 +1,85 @@
+{
+  "autopromptString": "Here is a hot AI agent startup:",
+  "results": [
+    {
+      "title": "imbue",
+      "url": "https://imbue.com/",
+      "publishedDate": "2023-09-07",
+      "author": null,
+      "id": "nPaiDaEhOw2GeIorYlxAGg",
+      "score": 0.18786264955997467
+    },
+    {
+      "title": "Adept: Useful General Intelligence",
+      "url": "https://www.adept.ai/",
+      "publishedDate": "2000-01-01",
+      "author": null,
+      "id": "aNBppxBZvQRZMov6sFVj9g",
+      "score": 0.18769238889217377
+    },
+    {
+      "title": "AgentRunner.ai",
+      "url": "https://www.agentrunner.ai/",
+      "publishedDate": "2023-04-12",
+      "author": null,
+      "id": "Ve4kFdUuvJm5nxpTHMsB7w",
+      "score": 0.18731991946697235
+    },
+    {
+      "title": "HiOperator | Generative AI-Enhanced Customer Service",
+      "url": "https://www.hioperator.com/",
+      "publishedDate": "2000-01-01",
+      "author": null,
+      "id": "jieb6sB53mId3EDo0z-SDw",
+      "score": 0.1840014010667801
+    },
+    {
+      "title": "Home - Stylo",
+      "url": "https://www.askstylo.com/",
+      "publishedDate": "2000-01-01",
+      "author": null,
+      "id": "kUiCuCjJYMD4N0NXdCtqlQ",
+      "score": 0.18132361769676208
+    },
+    {
+      "title": "DirectAI",
+      "url": "https://directai.io/?utm_source=twitter&utm_medium=raw_message&utm_campaign=first_launch",
+      "publishedDate": "2023-01-01",
+      "author": null,
+      "id": "45iSS8KnJ9tL1ilPg3dL9A",
+      "score": 0.1799592226743698
+    },
+    {
+      "title": "Sidekick AI | Customer Service Automated",
+      "url": "https://www.sidekickai.co/",
+      "publishedDate": "2020-01-01",
+      "author": null,
+      "id": "nCoPMUtqWQqhUvsdTjJT6A",
+      "score": 0.17954105138778687
+    },
+    {
+      "title": "AI.XYZ",
+      "url": "https://www.ai.xyz/",
+      "publishedDate": "2023-01-01",
+      "author": null,
+      "id": "A5c1ePEvsaQeml2Kui_-vA",
+      "score": 0.17805980145931244
+    },
+    {
+      "title": "@kuki_ai",
+      "url": "https://www.kuki.ai/",
+      "publishedDate": "2010-03-02",
+      "author": null,
+      "id": "A1XZioQLGJ5vML7k2MMDbA",
+      "score": 0.17743906378746033
+    },
+    {
+      "title": "Cognitive agents with natural language understanding abilities.",
+      "url": "https://titanvx.com/",
+      "publishedDate": "2020-09-26",
+      "author": null,
+      "id": "GirbcDGumLfOletRXLBf4Q",
+      "score": 0.17680852115154266
+    }
+  ]
+}
