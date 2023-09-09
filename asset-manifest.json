@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/pennapps/static/css/main.5c22cb22.css",
-    "main.js": "/pennapps/static/js/main.46b3e98b.js",
+    "main.css": "/pennapps/static/css/main.d4f5a1af.css",
+    "main.js": "/pennapps/static/js/main.844d2b93.js",
     "static/js/787.1e1d6668.chunk.js": "/pennapps/static/js/787.1e1d6668.chunk.js",
     "index.html": "/pennapps/index.html",
-    "main.5c22cb22.css.map": "/pennapps/static/css/main.5c22cb22.css.map",
-    "main.46b3e98b.js.map": "/pennapps/static/js/main.46b3e98b.js.map",
+    "main.d4f5a1af.css.map": "/pennapps/static/css/main.d4f5a1af.css.map",
+    "main.844d2b93.js.map": "/pennapps/static/js/main.844d2b93.js.map",
     "787.1e1d6668.chunk.js.map": "/pennapps/static/js/787.1e1d6668.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5c22cb22.css",
-    "static/js/main.46b3e98b.js"
+    "static/css/main.d4f5a1af.css",
+    "static/js/main.844d2b93.js"
   ]
 }
