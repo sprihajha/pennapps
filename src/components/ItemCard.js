@@ -7,7 +7,7 @@ import AddCircleOutlinedIcon from "@mui/icons-material/AddCircleOutlined";
 import IconButton from "@mui/material/IconButton";
 import { motion, AnimatePresence } from "framer-motion";
 
-const CheckboxCard = ({ title, url, onAdd }) => {
+const ItemCard = ({ title, url, onAdd }) => {
   const [isVisible, setIsVisible] = React.useState(true);
 
   const handleAdd = () => {
@@ -47,4 +47,4 @@ const CheckboxCard = ({ title, url, onAdd }) => {
   );
 };
 
-export default CheckboxCard;
+export default ItemCard;
