@@ -1,14 +1,43 @@
 import "./App.css";
 import React, { useState } from "react";
-import CheckboxCard from "./components/ItemCard";
+import {
+  useNavigate,
+  BrowserRouter as Router,
+  Route,
+  Routes,
+} from "react-router-dom";
+import ItemCard from "./components/ItemCard";
 import Cart from "./components/Cart";
 import CartButton from "./components/CartButton";
-import MetaphorSearch from "./components/MetaphorSearch";
-import results from "./searchResults.json";
+import Search from "./components/Search";
+import Receipt from "./components/Receipt";
+import Button from "@mui/material/Button";
+
+const Navigation = () => {
+  const navigate = useNavigate();
+
+  const handleCheckout = () => {
+    navigate("/pennapps");
+  };
+
+  return (
+    <header>
+      <Button
+        onClick={handleCheckout}
+        variant="contained"
+        color="primary"
+        style={{ margin: "10px" }}
+      >
+        Back to Home
+      </Button>
+    </header>
+  );
+};
 
 const App = () => {
   const [selectedItems, setSelectedItems] = useState({});
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [searchResults, setSearchResults] = useState([]);
 
   const handleAdd = (index, item) => {
     setSelectedItems({
@@ -26,29 +55,49 @@ const App = () => {
   const selectedItemsArray = Object.values(selectedItems);
 
   return (
-    <div className="App">
-      <header>
-        <CartButton
-          count={selectedItemsArray.length}
-          onClick={() => setIsCartOpen(!isCartOpen)}
-        />
-      </header>
-      <MetaphorSearch />
-      {results?.results?.map((result, index) => (
-        <CheckboxCard
-          key={index}
-          title={result.title}
-          url={result.url}
-          onAdd={() => handleAdd(index, result)}
-        />
-      ))}
-      <Cart
-        items={selectedItems}
-        open={isCartOpen}
-        onClose={() => setIsCartOpen(false)}
-        onRemove={handleRemove}
-      />
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route
+            path="/receipt"
+            element={
+              <>
+                <Navigation />
+                <Receipt items={selectedItems} />
+              </>
+            }
+          />
+          <Route
+            path="/pennapps"
+            element={
+              <>
+                <header>
+                  <CartButton
+                    count={selectedItemsArray.length}
+                    onClick={() => setIsCartOpen(!isCartOpen)}
+                  />
+                </header>
+                <Search onSearchResults={setSearchResults} />
+                {searchResults?.map((result, index) => (
+                  <ItemCard
+                    key={index}
+                    title={result.title}
+                    url={result.url}
+                    onAdd={() => handleAdd(index, result)}
+                  />
+                ))}
+                <Cart
+                  items={selectedItems}
+                  open={isCartOpen}
+                  onClose={() => setIsCartOpen(false)}
+                  onRemove={handleRemove}
+                />
+              </>
+            }
+          />
+        </Routes>
+      </div>
+    </Router>
   );
 };
 
