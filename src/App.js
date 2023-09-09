@@ -2,7 +2,7 @@ import "./App.css";
 import React, { useState } from "react";
 import {
   useNavigate,
-  BrowserRouter as Router,
+  HashRouter as Router,
   Route,
   Routes,
 } from "react-router-dom";
@@ -17,7 +17,7 @@ const Navigation = () => {
   const navigate = useNavigate();
 
   const handleCheckout = () => {
-    navigate("/pennapps");
+    navigate("/");
   };
 
   return (
@@ -68,7 +68,7 @@ const App = () => {
             }
           />
           <Route
-            path="/pennapps"
+            path="/"
             element={
               <>
                 <header>
