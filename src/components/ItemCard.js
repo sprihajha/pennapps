@@ -43,6 +43,7 @@ const ItemCard = ({ title, url, onAdd }) => {
 								color="textSecondary"
 								style={{
 									fontFamily: "Inter",
+                  fontSize:"1rem"
 								}}
 							>
 								<a

@@ -43,9 +43,9 @@ export default function Search({ onSearchResults }) {
     const metaphor = new Metaphor(process.env.REACT_APP_YOUR_API_KEY);
 
     try {
-      const queryString = `${locationInput} ${activityInput}`;
+      const queryString = `Here are some ${activityInput} events or locations in ${locationInput} `;
       const response = await metaphor.search(queryString, {
-        numResults: 5,
+        numResults: 10,
         useAutoprompt: true,
       });
       onSearchResults(response.results);
@@ -95,6 +95,7 @@ export default function Search({ onSearchResults }) {
 				onClick={formSubmit}
 				style={{
 					fontFamily: "Inter",
+          fontSize:"1rem"
 				}}
 			>
 				Search

@@ -6,7 +6,9 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 const CartButton = ({ count, onClick }) => {
   return (
     <Button color="primary" onClick={onClick} style={{
-      fontFamily:"Inter"
+      fontFamily:"Inter",
+      fontSize:"1rem",
+      marginTop:"1em"
     }}>
       <Badge badgeContent={count} color="secondary">
         <ShoppingCartIcon />
