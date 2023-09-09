@@ -1,6 +1,8 @@
 import React from "react";
 import secrets from "../secrets.json"
 import cartCache from "../testdata.json"
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
 import OpenAI from "openai";
 
 const openai = new OpenAI({
@@ -21,6 +23,7 @@ class ItineraryGenerator extends React.Component {
 			<div>
 				<p> 
           {this.cache[0].Title}
+          <Button variant='outlined' onClick={()=>{console.log("Button clicked")}}>Make Itinerary</Button>
         </p>
 			</div>
 		);
