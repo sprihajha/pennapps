@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useState } from "react";
-import CheckboxCard from "./components/CheckboxCard";
+import CheckboxCard from "./components/ItemCard";
 import Cart from "./components/Cart";
 import CartButton from "./components/CartButton";
 import MetaphorSearch from "./components/MetaphorSearch";
