@@ -1,0 +1,36 @@
+.HeroInput{
+  font-family: "Poppins";
+  font-size:64px;
+  font-weight: bold;
+  border: none;
+  min-width: 100px;
+  width: fit-content;
+  outline:none;
+  text-decoration: underline;
+  text-decoration-color: rgb(37, 153, 255);
+  text-decoration-color:linear-gradient(90deg, rgba(37, 153, 255, 1) 0%, rgba(156, 0, 255, 1) 100%);
+}
+
+.HeroInput:active::after, .HeroInput:focus::after{
+  border: none;
+  outline:none;
+} 
+
+.HeroInput::before{
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  left: 0;
+  height: 5px;
+  border-radius: 2px;
+  background: linear-gradient(111.3deg, #9c27b0 9.6%, #00bcd4 93.6%);
+}
+
+.HeroForm{
+  max-width: 868px;
+  text-align: center;
+  margin: 0 auto;
+}
+.HeroForm h1{
+  font-size: 64px;
+}

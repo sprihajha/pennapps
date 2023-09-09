@@ -5,11 +5,13 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const CartButton = ({ count, onClick }) => {
   return (
-    <Button color="primary" onClick={onClick}>
+    <Button color="primary" onClick={onClick} style={{
+      fontFamily:"Inter"
+    }}>
       <Badge badgeContent={count} color="secondary">
         <ShoppingCartIcon />
       </Badge>
-      Cart
+      Itinerary
     </Button>
   );
 };

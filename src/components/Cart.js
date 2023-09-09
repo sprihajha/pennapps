@@ -85,11 +85,11 @@ const Cart = ({ items, open, onClose, onRemove }) => {
             color="primary"
             style={{ margin: "10px" }}
           >
-            Checkout
+            Itinerary
           </Button>
         ) : (
           <Typography variant="body1" style={{ margin: "10px" }}>
-            Add {3 - itemCount} more items to checkout.
+            Add {3 - itemCount} more events to your itinerary.
           </Typography>
         )}
       </motion.div>
