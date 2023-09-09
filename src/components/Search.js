@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Metaphor from "metaphor-node";
-import { TextField, Button } from "@mui/material";
+import { Button } from "@mui/material";
 import { motion } from "framer-motion";
 import "../Search.css";
 
