@@ -40,18 +40,27 @@ export default function Search({ onSearchResults }) {
     }
   }
   const formSubmit = async () => {
-    const metaphor = new Metaphor(process.env.REACT_APP_YOUR_API_KEY);
-
     try {
-      const queryString = `Here are some ${activityInput} events or locations in ${locationInput} `;
-      const response = await metaphor.search(queryString, {
-        numResults: 10,
-        useAutoprompt: true,
-      });
-      onSearchResults(response.results);
-    } catch (err) {
-      console.error(err);
-    }
+		const response = await fetch("http://localhost:3001/api/search", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				queryString: `Here are some ${activityInput} events or locations in ${locationInput}`,
+				numResults: 5,
+			}),
+		});
+
+		if (response.ok) {
+			const data = await response.json();
+			onSearchResults(data.results);
+		} else {
+			console.error("Error:", response.statusText);
+		}
+	} catch (err) {
+		console.error(err);
+	}
   };
 
   return (
@@ -74,7 +83,7 @@ export default function Search({ onSearchResults }) {
               onChange={(e) => handleLocationChange(e)}
             />
           </span>
-          to do{" "}
+          to {" "}
           <span>
             <input
               id="activity-input"
