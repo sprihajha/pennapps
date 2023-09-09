@@ -1,5 +1,6 @@
 // src/components/Cart.js
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
@@ -11,6 +12,11 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const Cart = ({ items, open, onClose, onRemove }) => {
   const itemCount = Object.keys(items).length;
+  const navigate = useNavigate();
+
+  const handleCheckout = () => {
+    navigate("/receipt");
+  };
 
   return (
     <Modal
@@ -74,6 +80,7 @@ const Cart = ({ items, open, onClose, onRemove }) => {
         </AnimatePresence>
         {itemCount >= 3 ? (
           <Button
+            onClick={handleCheckout}
             variant="contained"
             color="primary"
             style={{ margin: "10px" }}
