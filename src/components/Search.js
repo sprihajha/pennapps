@@ -2,7 +2,7 @@ import { useState } from "react";
 import Metaphor from "metaphor-node";
 import { TextField, Button } from "@mui/material";
 import { motion } from "framer-motion";
-import '../Search.css';
+import "../Search.css";
 
 export default function Search({ onSearchResults }) {
   const [locationInput, setLocationInput] = useState("");
@@ -12,21 +12,21 @@ export default function Search({ onSearchResults }) {
   const [activityInputSize, setActivityInputSize] = useState(8);
 
   const locationInputStyle = {
-		display: "inline-block",
-		width: `${locationInputSize}ch`,
+    display: "inline-block",
+    width: `${locationInputSize}ch`,
   };
 
   const activityInputStyle = {
-		display: "inline-block",
-		width: `${activityInputSize}ch`,
+    display: "inline-block",
+    width: `${activityInputSize}ch`,
   };
 
   function handleLocationChange(e) {
-    setLocationInput(e.target.value); 
-    if (e.target.value.length > 8){
+    setLocationInput(e.target.value);
+    if (e.target.value.length > 8) {
       const additionalCh = Math.ceil((e.target.value.length - 8) / 2);
-      setLocationInputSize(8+additionalCh);
-    }else{
+      setLocationInputSize(8 + additionalCh);
+    } else {
       setLocationInputSize(8);
     }
   }
@@ -34,8 +34,8 @@ export default function Search({ onSearchResults }) {
     setActivityInput(e.target.value);
     if (e.target.value.length > 8) {
       const additionalCh = Math.ceil((e.target.value.length - 8) / 2);
-      setActivityInputSize(8+additionalCh);
-    }else{
+      setActivityInputSize(8 + additionalCh);
+    } else {
       setActivityInputSize(8);
     }
   }
@@ -55,51 +55,50 @@ export default function Search({ onSearchResults }) {
   };
 
   return (
-		<motion.div
-			initial={{ opacity: 0 }}
-			animate={{ opacity: 1 }}
-			transition={{ duration: 0.5 }}
-		>
-			<div className="HeroForm">
-				<h1>
-					I want to go to{" "}
-					<span>
-						<input
-							id="location-input"
-							className="HeroInput"
-							variant="standard"
-							placeholder="location..."
-							style={locationInputStyle}
-							value={locationInput}
-							onChange={(e) => handleLocationChange(e)}
-						/>
-					</span>
-					to do{" "}
-					<span>
-						<input
-							id="activity-input"
-							className="HeroInput"
-							variant="standard"
-							placeholder="activity..."
-							style={activityInputStyle}
-							value={activityInput}
-							onChange={(e) => handleActivityChange(e)}
-						/>
-					</span>
-				</h1>
-			</div>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className="HeroForm">
+        <h1>
+          I want to go to{" "}
+          <span>
+            <input
+              id="location-input"
+              className="HeroInput"
+              variant="standard"
+              placeholder="location..."
+              style={locationInputStyle}
+              value={locationInput}
+              onChange={(e) => handleLocationChange(e)}
+            />
+          </span>
+          to do{" "}
+          <span>
+            <input
+              id="activity-input"
+              className="HeroInput"
+              variant="standard"
+              placeholder="activity..."
+              style={activityInputStyle}
+              value={activityInput}
+              onChange={(e) => handleActivityChange(e)}
+            />
+          </span>
+        </h1>
+      </div>
 
-			<Button
-				variant="contained"
-				color="success"
-				onClick={formSubmit}
-				style={{
-					fontFamily: "Inter",
-          fontSize:"1rem"
-				}}
-			>
-				Search
-			</Button>
-		</motion.div>
+      <Button
+        variant="contained"
+        onClick={formSubmit}
+        style={{
+          fontFamily: "Inter",
+          fontSize: "1rem",
+        }}
+      >
+        Search
+      </Button>
+    </motion.div>
   );
 }
