@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Metaphor from "metaphor-node";
 import { Button } from "@mui/material";
 import { motion } from "framer-motion";
 import "../Search.css";
@@ -41,30 +40,30 @@ export default function Search({ onSearchResults }) {
   }
   const formSubmit = async () => {
     try {
-		const response = await fetch(
-			"https://autotourist.ue.r.appspot.com/api/search",
-			{
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({
-					queryString: `Here are some ${activityInput} events or locations in ${locationInput}`,
-					numResults: 5,
-				}),
-			}
-		);
+      const response = await fetch(
+        "https://autotourist.ue.r.appspot.com/api/search",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            queryString: `Here are some ${activityInput} events or locations in ${locationInput}`,
+            numResults: 5,
+          }),
+        }
+      );
 
-		if (response.ok) {
-			const data = await response.json();
-			onSearchResults(data.results);
-      console.log(data.results)
-		} else {
-			console.error("Error:", response.statusText);
-		}
-	} catch (err) {
-		console.error(err);
-	}
+      if (response.ok) {
+        const data = await response.json();
+        onSearchResults(data.results);
+        console.log(data.results);
+      } else {
+        console.error("Error:", response.statusText);
+      }
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
@@ -87,7 +86,7 @@ export default function Search({ onSearchResults }) {
               onChange={(e) => handleLocationChange(e)}
             />
           </span>
-          to {" "}
+          to{" "}
           <span>
             <input
               id="activity-input"
