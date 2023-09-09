@@ -41,20 +41,24 @@ export default function Search({ onSearchResults }) {
   }
   const formSubmit = async () => {
     try {
-		const response = await fetch("http://localhost:3001/api/search", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-				queryString: `Here are some ${activityInput} events or locations in ${locationInput}`,
-				numResults: 5,
-			}),
-		});
+		const response = await fetch(
+			"https://autotourist.ue.r.appspot.com/api/search",
+			{
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					queryString: `Here are some ${activityInput} events or locations in ${locationInput}`,
+					numResults: 5,
+				}),
+			}
+		);
 
 		if (response.ok) {
 			const data = await response.json();
 			onSearchResults(data.results);
+      console.log(data.results)
 		} else {
 			console.error("Error:", response.statusText);
 		}

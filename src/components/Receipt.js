@@ -10,15 +10,18 @@ const Receipt = ({ items }) => {
   console.log(itemArray)
   const generateItinerary = async () => {
     try {
-      const response = await fetch("http://localhost:3001/api/itinerary", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          cart: itemArray,
-        }),
-      });
+      const response = await fetch(
+			"https://autotourist.ue.r.appspot.com/api/itinerary",
+			{
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					cart: itemArray,
+				}),
+			}
+		);
 
       if (response.ok) {
         const data = await response.json();
