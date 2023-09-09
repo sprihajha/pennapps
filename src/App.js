@@ -2,7 +2,7 @@ import "./App.css";
 import React, { useState } from "react";
 import CheckboxCard from "./components/CheckboxCard";
 import Cart from "./components/Cart";
-import CartButton from "./components/CardButton";
+import CartButton from "./components/CartButton";
 import MetaphorSearch from "./components/MetaphorSearch";
 import results from "./searchResults.json";
 
@@ -28,7 +28,6 @@ const App = () => {
   return (
     <div className="App">
       <header>
-        <h1>Shop</h1>
         <CartButton
           count={selectedItemsArray.length}
           onClick={() => setIsCartOpen(!isCartOpen)}
