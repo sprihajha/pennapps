@@ -24,18 +24,11 @@ const Receipt = ({ items, days }) => {
     try {
       const accountSid = process.env.TWILIO_ACCOUNT_SID;
       const authToken = process.env.TWILIO_AUTH_TOKEN;
-      const client = require("twilio")(accountSid, authToken);
+      const fromNumber = "+18339760526"
+      const toNumber = "+18482281663"
+      const body = {data}
+      const apiUrl = 
 
-      client.messages
-        .create({
-          body: { data },
-          from: "+18339760526",
-          to: `+${phoneNumber}`,
-        })
-        .then((message) => console.log(message.sid))
-        .done();
-    } catch (err) {
-      console.error(err);
     }
   };
 
