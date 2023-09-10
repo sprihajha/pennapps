@@ -83,7 +83,7 @@ const Cart = ({ items, open, onClose, onRemove }) => {
             onClick={handleCheckout}
             variant="contained"
             color="primary"
-            style={{ margin: "10px" }}
+            style={{ margin: "10px", color: "white" }}
           >
             Itinerary
           </Button>

@@ -156,6 +156,7 @@ export default function Search({ onSearchResults, onDaysInputChange }) {
 					fontFamily: "Inter",
 					fontSize: "1rem",
 					marginBottom: "1rem",
+          color:"white"
 				}}
 			>
 				Search
