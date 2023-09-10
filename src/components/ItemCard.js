@@ -7,7 +7,7 @@ import AddCircleOutlinedIcon from "@mui/icons-material/AddCircleOutlined";
 import IconButton from "@mui/material/IconButton";
 import { motion, AnimatePresence } from "framer-motion";
 
-const ItemCard = ({ title, url, onAdd }) => {
+const ItemCard = ({ title, url, id, onAdd }) => {
   const [isVisible, setIsVisible] = React.useState(true);
 
   const handleAdd = () => {

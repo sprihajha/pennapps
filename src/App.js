@@ -83,6 +83,7 @@ const App = () => {
                     key={index}
                     title={result.title}
                     url={result.url}
+                    id={result.id}
                     onAdd={() => handleAdd(index, result)}
                   />
                 ))}
