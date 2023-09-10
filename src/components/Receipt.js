@@ -14,9 +14,8 @@ const Receipt = ({ items, days }) => {
   const generateItinerary = async () => {
 		setIsLoading(true);
 		console.log(days);
-		//https://autotourist.ue.r.appspot.com/api/itinerary
 		try {
-			const response = await fetch("http://localhost:3001/api/itinerary", {
+			const response = await fetch("https://autotourist.ue.r.appspot.com/api/itinerary", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
