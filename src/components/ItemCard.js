@@ -7,10 +7,13 @@ import AddCircleOutlinedIcon from "@mui/icons-material/AddCircleOutlined";
 import IconButton from "@mui/material/IconButton";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect } from "react";
+import CircularProgress from '@mui/material/CircularProgress';
+
 
 const ItemCard = ({ title, url, id, onAdd }) => {
   const [isVisible, setIsVisible] = React.useState(true);
   const [description, setDescription] = React.useState('');
+  const [isLoading, setIsLoading] = React.useState(true);
 
   const handleAdd = () => {
     setIsVisible(false);
@@ -44,6 +47,8 @@ const ItemCard = ({ title, url, id, onAdd }) => {
 	  } catch (err) {
 		console.error(err);
 	  }
+		setIsLoading(false);
+	  
   }
   useEffect(()=>{
 	getSummary()
@@ -72,9 +77,7 @@ const ItemCard = ({ title, url, id, onAdd }) => {
 							>
 								{title}
 							</Typography>
-							<Typography variant='body1'>
-								{description}
-							</Typography>
+								{isLoading ? <CircularProgress /> : <Typography>{description}</Typography>}
 							<Typography
 								variant="body2"
 								color="textSecondary"
