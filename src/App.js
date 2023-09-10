@@ -12,6 +12,16 @@ import CartButton from "./components/CartButton";
 import Search from "./components/Search";
 import Receipt from "./components/Receipt";
 import Button from "@mui/material/Button";
+import { createTheme } from "@mui/material/styles";
+import { green, teal } from "@mui/material/colors";
+import { ThemeProvider } from "@mui/material/styles";
+
+const theme = createTheme({
+  palette: {
+    primary: green,
+    secondary: teal,
+  },
+});
 
 const Navigation = () => {
   const navigate = useNavigate();
@@ -61,51 +71,60 @@ const App = () => {
   return (
 		<Router>
 			<div className="App">
-				<Routes>
-					<Route
-						path="/receipt"
-						element={
-							<>
-								<Navigation />
-								<Receipt items={(selectedItems)} days ={daysInput} />
-							</>
-						}
-					/>
-					<Route
-						path="/"
-						element={
-							<>
-								<header>
-									<CartButton
-										count={selectedItemsArray.length}
-										onClick={() =>
-											setIsCartOpen(!isCartOpen)
+				<ThemeProvider theme={theme}>
+					<Routes>
+						<Route
+							path="/receipt"
+							element={
+								<>
+									<Navigation />
+									<Receipt
+										items={selectedItems}
+										days={daysInput}
+									/>
+								</>
+							}
+						/>
+						<Route
+							path="/"
+							element={
+								<>
+									<header>
+										<CartButton
+											count={selectedItemsArray.length}
+											onClick={() =>
+												setIsCartOpen(!isCartOpen)
+											}
+										/>
+									</header>
+									<Search
+										onSearchResults={setSearchResults}
+										onDaysInputChange={
+											handleDaysInputChange
 										}
 									/>
-								</header>
-								<Search
-									onSearchResults={setSearchResults}
-									onDaysInputChange={handleDaysInputChange}
-								/>
-								{searchResults?.map((result, index) => (
-									<ItemCard
-										key={index}
-										title={result.title}
-										url={result.url}
-										id={result.id}
-										onAdd={() => handleAdd(index, result)}
+									{searchResults?.map((result, index) => (
+										<ItemCard
+											key={index}
+											title={result.title}
+											url={result.url}
+											id={result.id}
+											onAdd={() =>
+												handleAdd(index, result)
+											}
+										/>
+									))}
+									<Cart
+										items={selectedItems}
+										open={isCartOpen}
+										onClose={() => setIsCartOpen(false)}
+										onRemove={handleRemove}
 									/>
-								))}
-								<Cart
-									items={selectedItems}
-									open={isCartOpen}
-									onClose={() => setIsCartOpen(false)}
-									onRemove={handleRemove}
-								/>
-							</>
-						}
-					/>
-				</Routes>
+								</>
+							}
+						/>
+					</Routes>
+				</ThemeProvider>
 			</div>
 		</Router>
   );

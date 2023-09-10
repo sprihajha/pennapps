@@ -27,21 +27,37 @@ export default function Search({ onSearchResults, onDaysInputChange }) {
 	};
 	function handleLocationChange(e) {
 		setLocationInput(e.target.value);
-		if (e.target.value.length > 8) {
+
+    if (e.target.value.length ===0){
+      setLocationInputSize(8);
+    }else{
+      const newLen = Math.ceil(e.target.value.length*0.85)
+      setLocationInputSize(newLen);
+    }
+    
+
+		/*if (e.target.value.length > 8) {
 			const additionalCh = Math.ceil((e.target.value.length - 8) / 2);
 			setLocationInputSize(8 + additionalCh);
 		} else {
 			setLocationInputSize(8);
-		}
+		}*/
 	}
 	function handleActivityChange(e) {
 		setActivityInput(e.target.value);
-		if (e.target.value.length > 8) {
+    if (e.target.value.length ===0){
+      setActivityInputSize(8);
+    }else{
+      const newLen = Math.ceil(e.target.value.length * 0.85);
+      setActivityInputSize(newLen);
+    }
+
+		/*if (e.target.value.length > 8) {
 			const additionalCh = Math.ceil((e.target.value.length - 8) / 2);
 			setActivityInputSize(8 + additionalCh);
 		} else {
 			setActivityInputSize(8);
-		}
+		}*/
 	}
 	function handleDaysChange(e) {
 		const numericValue = e.target.value.replace(/[^0-9]/g, "");
@@ -53,6 +69,10 @@ export default function Search({ onSearchResults, onDaysInputChange }) {
 	}
 
 	const formSubmit = async () => {
+    if (locationInput === "" || activityInput === "" || lowerDay === "") {
+      console.log("empty");
+      return;
+    }
 		try {
 			const response = await fetch(
 				"https://autotourist.ue.r.appspot.com/api/search",
@@ -62,7 +82,7 @@ export default function Search({ onSearchResults, onDaysInputChange }) {
 						"Content-Type": "application/json",
 					},
 					body: JSON.stringify({
-						queryString: `Here are some ${activityInput} events or locations in ${locationInput}`,
+						queryString: `Here are some environmentally-friendly or eco-touristy ${activityInput} events or locations in ${locationInput}`,
 						numResults: 5,
 					}),
 				}
@@ -131,6 +151,7 @@ export default function Search({ onSearchResults, onDaysInputChange }) {
 			<Button
 				variant="contained"
 				onClick={formSubmit}
+        color="primary"
 				style={{
 					fontFamily: "Inter",
 					fontSize: "1rem",

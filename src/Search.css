@@ -7,7 +7,7 @@
   width: fit-content;
   outline:none;
   text-decoration: underline;
-  text-decoration-color: rgba(37, 153, 255, 1);
+  text-decoration-color: #388e3c;
   text-decoration-color:linear-gradient(90deg, rgba(37, 153, 255, 1) 0%, rgba(156, 0, 255, 1) 100%);
 }
 
