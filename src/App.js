@@ -86,7 +86,7 @@ const App = () => {
               path="/"
               element={
                 <>
-                  <header>
+                  <header className="sticky-header">
                     <CartButton
                       count={selectedItemsArray.length}
                       onClick={() => setIsCartOpen(!isCartOpen)}
