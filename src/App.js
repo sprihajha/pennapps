@@ -50,13 +50,13 @@ const App = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [daysInput, setDaysInput] = useState("");
   const handleDaysInputChange = (newDaysInput) => {
-		setDaysInput(newDaysInput);
+    setDaysInput(newDaysInput);
   };
 
-  const handleAdd = (index, item) => {
+  const handleAdd = (id, item) => {
     setSelectedItems({
       ...selectedItems,
-      [index]: item,
+      [id]: item,
     });
   };
 
@@ -69,67 +69,58 @@ const App = () => {
   const selectedItemsArray = Object.values(selectedItems);
 
   return (
-		<Router>
-			<div className="App">
-				<ThemeProvider theme={theme}>
-					<Routes>
-						<Route
-							path="/receipt"
-							element={
-								<>
-									<Navigation />
-									<Receipt
-										items={selectedItems}
-										days={daysInput}
-									/>
-								</>
-							}
-						/>
-						<Route
-							path="/"
-							element={
-								<>
-									<header>
-										<CartButton
-											count={selectedItemsArray.length}
-											onClick={() =>
-												setIsCartOpen(!isCartOpen)
-											}
-										/>
-									</header>
-									<div className="container">
-										<Search
-											onSearchResults={setSearchResults}
-											onDaysInputChange={
-												handleDaysInputChange
-											}
-										/>
-									</div>
-									{searchResults?.map((result, index) => (
-										<ItemCard
-											key={index}
-											title={result.title}
-											url={result.url}
-											id={result.id}
-											onAdd={() =>
-												handleAdd(index, result)
-											}
-										/>
-									))}
+    <Router>
+      <div className="App">
+        <ThemeProvider theme={theme}>
+          <Routes>
+            <Route
+              path="/receipt"
+              element={
+                <>
+                  <Navigation />
+                  <Receipt items={selectedItems} days={daysInput} />
+                </>
+              }
+            />
+            <Route
+              path="/"
+              element={
+                <>
+                  <header>
+                    <CartButton
+                      count={selectedItemsArray.length}
+                      onClick={() => setIsCartOpen(!isCartOpen)}
+                    />
+                  </header>
+                  <div className="container">
+                    <Search
+                      onSearchResults={setSearchResults}
+                      onDaysInputChange={handleDaysInputChange}
+                    />
+                  </div>
+                  {searchResults?.map((result) => (
+                    <ItemCard
+                      key={result.id} // Use a unique identifier from the result
+                      title={result.title}
+                      url={result.url}
+                      id={result.id}
+                      onAdd={() => handleAdd(result.id, result)} // Use the unique identifier for adding to cart
+                    />
+                  ))}
 
-									<Cart
-										items={selectedItems}
-										open={isCartOpen}
-										onClose={() => setIsCartOpen(false)}
-										onRemove={handleRemove}
-									/>
-								</>
-							}
-						/>
-					</Routes>
-				</ThemeProvider>
-			</div>
-		</Router>
+                  <Cart
+                    items={selectedItems}
+                    open={isCartOpen}
+                    onClose={() => setIsCartOpen(false)}
+                    onRemove={handleRemove}
+                  />
+                </>
+              }
+            />
+          </Routes>
+        </ThemeProvider>
+      </div>
+    </Router>
   );
 };
 
