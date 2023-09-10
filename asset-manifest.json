@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/pennapps/static/css/main.53ab57b2.css",
-    "main.js": "/pennapps/static/js/main.1c169162.js",
-    "static/js/787.1e1d6668.chunk.js": "/pennapps/static/js/787.1e1d6668.chunk.js",
-    "index.html": "/pennapps/index.html",
-    "main.53ab57b2.css.map": "/pennapps/static/css/main.53ab57b2.css.map",
-    "main.1c169162.js.map": "/pennapps/static/js/main.1c169162.js.map",
-    "787.1e1d6668.chunk.js.map": "/pennapps/static/js/787.1e1d6668.chunk.js.map"
+    "main.css": "/static/css/main.38f2695e.css",
+    "main.js": "/static/js/main.873c0fc6.js",
+    "static/js/787.1e1d6668.chunk.js": "/static/js/787.1e1d6668.chunk.js",
+    "index.html": "/index.html",
+    "main.38f2695e.css.map": "/static/css/main.38f2695e.css.map",
+    "main.873c0fc6.js.map": "/static/js/main.873c0fc6.js.map",
+    "787.1e1d6668.chunk.js.map": "/static/js/787.1e1d6668.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.53ab57b2.css",
-    "static/js/main.1c169162.js"
+    "static/css/main.38f2695e.css",
+    "static/js/main.873c0fc6.js"
   ]
 }
