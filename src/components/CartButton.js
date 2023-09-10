@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "@mui/material/Button";
 import Badge from "@mui/material/Badge";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
 
 const CartButton = ({ count, onClick }) => {
   return (
@@ -11,7 +11,7 @@ const CartButton = ({ count, onClick }) => {
       marginTop:"1em"
     }}>
       <Badge badgeContent={count} color="secondary">
-        <ShoppingCartIcon />
+        <FlightTakeoffIcon style={{marginRight:"4px"}}/>
       </Badge>
       Itinerary
     </Button>
