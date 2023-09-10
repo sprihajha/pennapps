@@ -31,7 +31,7 @@ export default function Search({ onSearchResults, onDaysInputChange }) {
     if (e.target.value.length ===0){
       setLocationInputSize(8);
     }else{
-      const newLen = Math.ceil(e.target.value.length*0.85)
+      const newLen = Math.ceil(e.target.value.length*0.9)
       setLocationInputSize(newLen);
     }
     
@@ -48,7 +48,7 @@ export default function Search({ onSearchResults, onDaysInputChange }) {
     if (e.target.value.length ===0){
       setActivityInputSize(8);
     }else{
-      const newLen = Math.ceil(e.target.value.length * 0.85);
+      const newLen = Math.ceil(e.target.value.length * 0.9);
       setActivityInputSize(newLen);
     }
 

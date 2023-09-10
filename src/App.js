@@ -97,12 +97,14 @@ const App = () => {
 											}
 										/>
 									</header>
-									<Search
-										onSearchResults={setSearchResults}
-										onDaysInputChange={
-											handleDaysInputChange
-										}
-									/>
+									<div className="container">
+										<Search
+											onSearchResults={setSearchResults}
+											onDaysInputChange={
+												handleDaysInputChange
+											}
+										/>
+									</div>
 									{searchResults?.map((result, index) => (
 										<ItemCard
 											key={index}
@@ -114,6 +116,7 @@ const App = () => {
 											}
 										/>
 									))}
+
 									<Cart
 										items={selectedItems}
 										open={isCartOpen}
