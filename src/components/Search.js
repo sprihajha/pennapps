@@ -107,6 +107,7 @@ export default function Search({ onSearchResults }) {
         style={{
           fontFamily: "Inter",
           fontSize: "1rem",
+          marginBottom: "1rem"
         }}
       >
         Search

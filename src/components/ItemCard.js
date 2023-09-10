@@ -6,9 +6,11 @@ import Typography from "@mui/material/Typography";
 import AddCircleOutlinedIcon from "@mui/icons-material/AddCircleOutlined";
 import IconButton from "@mui/material/IconButton";
 import { motion, AnimatePresence } from "framer-motion";
+import { useEffect } from "react";
 
 const ItemCard = ({ title, url, id, onAdd }) => {
   const [isVisible, setIsVisible] = React.useState(true);
+  const [description, setDescription] = React.useState('');
 
   const handleAdd = () => {
     setIsVisible(false);
@@ -16,6 +18,36 @@ const ItemCard = ({ title, url, id, onAdd }) => {
       onAdd();
     }
   };
+
+  const getSummary = async () => {
+	try {
+		const response = await fetch(
+		  "https://autotourist.ue.r.appspot.com/api/crawl",
+		  {
+			method: "POST",
+			headers: {
+			  "Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+			  articleID: {id}
+			}),
+		  }
+		);
+  
+		if (response.ok) {
+		  const data = await response.json();
+		  setDescription(data);
+		  console.log(data);
+		} else {
+		  console.error("Error:", response.statusText);
+		}
+	  } catch (err) {
+		console.error(err);
+	  }
+  }
+  useEffect(()=>{
+	getSummary()
+  }, [])
 
   return (
 		<AnimatePresence>
@@ -31,12 +63,17 @@ const ItemCard = ({ title, url, id, onAdd }) => {
 					>
 						<CardContent>
 							<Typography
-								variant="h6"
+								variant="h5"
 								style={{
 									fontFamily: "Poppins",
+									fontWeight: 'bold',
 								}}
+
 							>
 								{title}
+							</Typography>
+							<Typography variant='body1'>
+								{description}
 							</Typography>
 							<Typography
 								variant="body2"
