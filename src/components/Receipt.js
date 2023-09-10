@@ -4,7 +4,7 @@ import { useState } from "react";
 import "../Search.css";
 import CircularProgress from "@mui/material/CircularProgress";
 
-const Receipt = ({ items }) => {
+const Receipt = ({ items, days }) => {
   const itemArray = Object.values(items);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -12,34 +12,33 @@ const Receipt = ({ items }) => {
 
   console.log(itemArray);
   const generateItinerary = async () => {
-    setIsLoading(true);
+		setIsLoading(true);
+		console.log(days);
+		//https://autotourist.ue.r.appspot.com/api/itinerary
+		try {
+			const response = await fetch("http://localhost:3001/api/itinerary", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					days: days,
+					cart: itemArray,
+				}),
+			});
 
-    try {
-      const response = await fetch(
-        "https://autotourist.ue.r.appspot.com/api/itinerary",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            cart: itemArray,
-          }),
-        }
-      );
-
-      if (response.ok) {
-        const data = await response.json();
-        console.log(data);
-        setData(data);
-      } else {
-        console.error("Error:", response.statusText);
-      }
-    } catch (err) {
-      console.error(err);
-    } finally {
-      setIsLoading(false); // Hide the preloader once data is set or if an error occurs
-    }
+			if (response.ok) {
+				const data = await response.json();
+				console.log(data);
+				setData(data);
+			} else {
+				console.error("Error:", response.statusText);
+			}
+		} catch (err) {
+			console.error(err);
+		} finally {
+			setIsLoading(false); // Hide the preloader once data is set or if an error occurs
+		}
   };
 
   return (
