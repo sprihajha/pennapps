@@ -1,6 +1,8 @@
 import { Container, Typography, Paper, Divider,Button } from "@mui/material";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import "../Search.css";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const Receipt = ({ items }) => {
   const itemArray = Object.values(items);
@@ -106,6 +108,7 @@ const styles = {
   header: {
     textAlign: "center",
     marginBottom: "20px",
+    fontFamily: "Poppins",
   },
   itemContainer: {
     padding: "10px 0",
@@ -113,9 +116,11 @@ const styles = {
   },
   itemTitle: {
     fontWeight: "bold",
+    fontFamily: "Poppins",
   },
   itemUrl: {
     wordBreak: "break-all",
+    fontFamily: "Inter",
   },
 };
 
