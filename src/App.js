@@ -26,7 +26,7 @@ const Navigation = () => {
         onClick={handleCheckout}
         variant="contained"
         color="primary"
-        style={{ margin: "10px" }}
+        style={{ margin: "40px 0px 20px 0px" }}
       >
         Back to Home
       </Button>
